@@ -5,10 +5,10 @@ export default function SearchBox() {
   return (
   	<SolidCard>
   		<div className="search-box row">
-	  		<span class="material-icons">
+	  		<span className="material-icons">
 					search
 				</span>
-		 		<input spellcheck="false" />
+		 		<input spellCheck="false" />
 		 	</div>
 	 	</SolidCard>
   );
