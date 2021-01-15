@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: $font-dark;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Main {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../assets/img/bgsunny.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+input {
+	background-color: rgba(0,0,0,0);
+	border: none;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+  color: $font-dark;
+  font-size: 16px;
+  margin-left: .5rem;	
+}

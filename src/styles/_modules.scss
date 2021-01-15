@@ -1,0 +1,95 @@
+.brand {
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+// material icons
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// card
+.solid-card {
+	background: linear-gradient(271.59deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 100%);
+	box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+	display: inline-block;
+}
+
+.glass-card {
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+	background: linear-gradient(152.39deg, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .1) 100%);
+	backdrop-filter: blur(10px);
+}
+
+// search-box
+.search-box {
+	padding: 1rem;
+	width: 300px;
+	height: 50px;
+	input {
+		flex: 1;
+	}
+}
+
+// navbar
+.navbar {
+	.row {
+		justify-content: space-between;
+		padding: 1rem;
+	}
+}
+
+
+// current weather
+.current-weather {
+	padding: 2rem 3rem;
+	display: inline-block;
+
+	&--temp {
+		font-size: 64px;
+		margin-right: 1rem;
+	}
+
+	&--icon {
+		img {
+			width: 90px;
+			height: 90px;			
+		}
+		span {
+			font-weight: 500;
+		}
+	}
+
+	&--card {
+		margin-top: 2rem;
+		.solid-card {
+			padding: 2rem 3rem;
+		}
+	}
+
+	&--loc-city {
+		font-size: 32px;
+		font-weight: 500;
+		display: block;
+	}
+
+	&--loc-region {
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	&--detail {
+		margin-top: 1rem;
+		span {
+			display: block;
+			line-height: 30px;
+		}
+		&--value {
+			margin-left: 1rem;
+			font-weight: 500;
+		}
+	}
+}

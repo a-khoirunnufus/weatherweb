@@ -1,0 +1,26 @@
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	&.center {
+		justify-content: center;
+	}
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	&.center {
+		align-items: center;
+	}
+}
+
+.container-lg {
+	width: 992px;
+	margin: 0 auto;
+}
+
+.content {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
