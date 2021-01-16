@@ -6,7 +6,7 @@ import weatherIconUrl from '../../assets/icons/weather/day/sunny.png';
 export default function TodayPred() {
 	return (
 		<div className="today-pred">
-			<img className="today-pred--img" src={graphUrl} />
+			<img className="today-pred--img" src={graphUrl} alt="graph weather"/>
 			<div className="today-pred--card">
 				<SolidCard>
 					<div className="row">
@@ -17,7 +17,7 @@ export default function TodayPred() {
 									<div className="today-pred--card--item col center">
 										<span>Now</span>
 										<div className="row">
-											<img src={weatherIconUrl} />
+											<img src={weatherIconUrl} alt="weather icon"/>
 											<div className="today-pred--card--item--text col center">
 												<span>20°</span>
 												<span>sunny</span>

@@ -1,12 +1,18 @@
 export const initialState = {
 	theme: 'day-sunny',
-	location: 'Jakarta, Indonesia',
+	location: {
+		country: '',
+		name: '',
+		region: ''
+	},
 	current: {
-		wind: 0,
-		prec: 0,
 		cloud: 0,
+		condition: {},
 		humidity: 0,
-		pressure: 0
+		temp: 0,
+		precip: 0,
+		pressure: 0,
+		wind: 0,
 	},
 	forecast: [
 		{
@@ -17,7 +23,12 @@ export const initialState = {
 
 export const Reducer = (state = initialState, action) => {
 	switch(action.type) {
-		case 'GET_CURRENT':
+		case 'SET_LOC':
+			return {
+				...state,
+				location: action.payload
+			}
+		case 'SET_CURRENT':
 			return {
 				...state,
 				current: action.payload

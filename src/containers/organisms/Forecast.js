@@ -9,7 +9,7 @@ export default function Forecast() {
 				<div className="forecast--item col">
 					<div className="forecast--day row">
 						<span>Wednesday, January 13</span>
-						<span class="material-icons">
+						<span className="material-icons">
 							expand_more
 						</span>
 					</div>
@@ -18,7 +18,7 @@ export default function Forecast() {
 				<div className="forecast--item col">
 					<div className="forecast--day row">
 						<span><b>Wednesday, January 13</b></span>
-						<span class="material-icons">
+						<span className="material-icons">
 							expand_more
 						</span>
 					</div>
@@ -28,7 +28,7 @@ export default function Forecast() {
 								<span>00:00</span>
 								<span className="forecast--hour--temp">34°</span>
 								<div className="forecast--hour--status row">
-									<img src={weatherIconUrl} />
+									<img src={weatherIconUrl} alt="weather icon"/>
 									<span>Sunny</span>
 								</div>
 								<div>
@@ -59,7 +59,7 @@ export default function Forecast() {
 				<div className="forecast--item col">
 					<div className="forecast--day row">
 						<span>Wednesday, January 13</span>
-						<span class="material-icons">
+						<span className="material-icons">
 							expand_more
 						</span>
 					</div>

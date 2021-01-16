@@ -10,11 +10,15 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+.content {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
 // card
 .solid-card {
 	background: linear-gradient(271.59deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 100%);
 	box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
-	border-radius: 20px;
 	display: inline-block;
 }
 
@@ -145,7 +149,7 @@
 // forecast
 .forecast {
 	display: inline-block;
-	padding: 3rem 2rem;
+	padding: 1rem 0 3rem 0;
 	.solid-card {
 		padding: 2rem 3rem;
 	}

@@ -1,8 +1,12 @@
 import React from 'react';
 import StatusIcon from '../../components/atoms/StatusIcon';
 import SolidCard from '../../components/atoms/SolidCard';
+import { connect } from 'react-redux';
 
-export default function CurrentWeather() {
+function CurrentWeather(props) {
+	// useEffect(() => {
+	// 	console.log('props pada currentWeather: ',props);
+	// }, [ props.location, props.current ]);
 	return (
 		<div className="current-weather">
 			
@@ -38,3 +42,10 @@ export default function CurrentWeather() {
 		</div>
 	);
 }
+
+const mapStateToProps = state => ({
+	location: state.location,
+	current: state.current
+})
+
+export default connect(mapStateToProps, null)(CurrentWeather);

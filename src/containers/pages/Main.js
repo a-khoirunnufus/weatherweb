@@ -5,19 +5,29 @@ import CurrentWeather from '../organisms/CurrentWeather';
 import TodayPred from '../organisms/TodayPred';
 import Forecast from '../organisms/Forecast';
 
-//import { Provider } from 'react-redux';
-//import { configureStore} from './config/redux/configureStore';
-//import CurrentWeather from './components/currentWeather';
-// test
-//import { getCurrentFromAPI } from './config/weatherApi';
+import { connect } from 'react-redux';
+import { getLocation } from '../../config/weatherApi';
+import { getCurrent } from '../../config/redux/actionCreators';
 
-//const store = configureStore();
+function Main(props) {
+  
+  const autoScanLoc = async () => {
+    try {
+      const location = await getLocation();
+      console.log(location);
+      await props.getCurrent(`${location.latitude},${location.longitude}`);
+    } catch(err) {
+      console.log(err);
+    }
+  }
 
-function Main() {
+  useEffect(() => {
+    autoScanLoc();
+  }, [])
+
   return (
     <div className="Main">
       <Navbar />
-
       <div className="content container-lg">
         <GlassCard>
           <div className="col center">
@@ -33,4 +43,8 @@ function Main() {
   );
 }
 
-export default Main;
+const mapDispatchToProps = dispatch => ({
+  getCurrent: (loc) => dispatch(getCurrent(loc)),
+});
+
+export default connect(null, mapDispatchToProps)(Main);
