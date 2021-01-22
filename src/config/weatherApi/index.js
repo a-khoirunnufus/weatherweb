@@ -1,5 +1,6 @@
 import { apiKey } from './apiKey';
 import geolocation from 'geolocation';
+import { ConvertToDate, ConvertToHour } from '../../utils/ConvertDate';
 
 const url = 'http://api.weatherapi.com/v1';
 
@@ -17,15 +18,16 @@ export const getLocation = () => {
 	});
 };
 
-export function getCurrentFromAPI(location) {
+export function getDataFromAPI(location) {
 	return new Promise((resolve, reject) => {
-		fetch(`${url}/current.json?key=${apiKey}&q=${location}`)
+		fetch(`${url}/forecast.json?key=${apiKey}&q=${location}&days=3`)
 			.then(res => res.json())
 			.then(data => {
-				let { location, current } = data;
-				location = filterResToLoc(location);
-				current = filterResToCurrent(current);
-				resolve({ location, current });
+				let { location, current, forecast } = data;
+				location = mapResToLoc(location);
+				current = mapResToCurrent(current);
+				forecast = mapResToForecast(forecast);
+				resolve({ location, current, forecast });
 			})
 			.catch(err => {
 				console.log(err);
@@ -37,8 +39,8 @@ export function getCurrentFromAPI(location) {
 	// 	try {
 	// 		const data = await fetch(`${url}/current.json?key=${apiKey}&q=${location}`);
 	// 		const { location, current } = data;
-	// 		location = filterResToLoc(location);
-	// 		current = filterResToCurrent(current);
+	// 		location = mapResToLoc(location);
+	// 		current = mapResToCurrent(current);
 	// 		return { location, current };
 	// 	} catch(err) {
 	// 		console.log(err);
@@ -48,7 +50,7 @@ export function getCurrentFromAPI(location) {
 
 };
 
-function filterResToLoc(loc) {
+function mapResToLoc(loc) {
 	return {
 		country: loc.country,
 		name: loc.name,
@@ -56,7 +58,7 @@ function filterResToLoc(loc) {
 	};
 }
 
-function filterResToCurrent(current) {
+function mapResToCurrent(current) {
 	return {
 		cloud: current.cloud,
 		condition: current.condition,
@@ -68,3 +70,45 @@ function filterResToCurrent(current) {
 	};
 }
 
+function mapResToForecast(forecast) {
+	let mapped = [];
+	forecast.forecastday.map(item => {
+		// convert date format
+		let date = item.date;
+		date = ConvertToDate(date);
+
+		let rawHour = item.hour;
+		let hour = [];
+		rawHour.map(item => {
+			let { 
+				time,
+				cloud,
+				condition,
+				humidity,
+				temp_c,
+				precip_in,
+				pressure_in,
+				wind_mph
+			} = item;
+			time = ConvertToHour(time);
+
+			hour.push({
+				time: time,
+				cloud: cloud,
+				condition: condition,
+				humidity: humidity,
+				temp: temp_c,
+				precip: precip_in,
+				pressure: pressure_in,
+				wind: wind_mph
+			});
+		});
+
+		mapped.push({
+			date: date,
+			hour: hour,
+		});	
+	});
+
+	return mapped;
+}

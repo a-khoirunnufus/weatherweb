@@ -111,6 +111,12 @@
 			width: 477px;
 			& > .row {
 				overflow: auto;
+				& > .row {
+					border-right: 1px solid $font-dark;
+					&:last-child {
+						border: none;
+					}
+				}
 				&::-webkit-scrollbar {
 			  	display: none;
 				}
@@ -118,7 +124,7 @@
 		}
 
 		&--item {
-			margin-right: 2rem;
+			padding: 0 2rem;
 			& > span {
 				font-weight: 500;
 			}
@@ -164,11 +170,25 @@
 	}
 
 	&--hour {
+		padding: .5rem 0;
 		& > * {
 			margin-left: 2rem;
 		}
+		&--hour {
+			font-weight: 500;
+		}
 		&--temp {
 			font-weight: 500;
+			width: 38px;
+		}
+		&--status {
+			width: 187px;
+		}
+		&--wind {
+			width: 59px;
+		}
+		&--precip {
+			width: 49px;
 		}
 		div {
 			&:not(:nth-child(3)) {

@@ -7,15 +7,17 @@ import Forecast from '../organisms/Forecast';
 
 import { connect } from 'react-redux';
 import { getLocation } from '../../config/weatherApi';
-import { getCurrent } from '../../config/redux/actionCreators';
+import { getData } from '../../config/redux/actionCreators';
 
 function Main(props) {
   
   const autoScanLoc = async () => {
     try {
-      const location = await getLocation();
-      console.log(location);
-      await props.getCurrent(`${location.latitude},${location.longitude}`);
+      const inputLoc = await getLocation();
+      console.log(inputLoc);
+      await props.getData(`${inputLoc.latitude},${inputLoc.longitude}`);
+      // get forecast
+
     } catch(err) {
       console.log(err);
     }
@@ -44,7 +46,7 @@ function Main(props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getCurrent: (loc) => dispatch(getCurrent(loc)),
+  getData: (loc) => dispatch(getData(loc)),
 });
 
 export default connect(null, mapDispatchToProps)(Main);

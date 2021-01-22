@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import StatusIcon from '../../components/atoms/StatusIcon';
 import SolidCard from '../../components/atoms/SolidCard';
 import { connect } from 'react-redux';
 
-function CurrentWeather(props) {
+function CurrentWeather({ location, current }) {
 	// useEffect(() => {
-	// 	console.log('props pada currentWeather: ',props);
-	// }, [ props.location, props.current ]);
+	// 	console.log('props pada currentWeather: ',{ location, current });
+	// }, [ location, current]);
 	return (
 		<div className="current-weather">
 			
 			<div className="row center">
-				<span className="current-weather--temp">34°</span>
-				<StatusIcon />
+				<span className="current-weather--temp">{current.temp}°</span>
+				<StatusIcon 
+					iconUrl={current.condition.icon} 
+					text={current.condition.text}
+				/>
 			</div>
 
 			<div className="current-weather--card">
 				<SolidCard>
-					<span className="current-weather--loc-city">Liwa</span>
-					<span className="current-weather--loc-region">Lampung, Indonesia</span>
+					<span className="current-weather--loc-city">{location.name}</span>
+					<span className="current-weather--loc-region">{location.region}, {location.country}</span>
 					<div className="current-weather--detail">
 						<div className="row">
 							<div className="current-weather--detail--key">
@@ -29,11 +32,11 @@ function CurrentWeather(props) {
 								<span>Pressure</span>
 							</div>
 							<div className="current-weather--detail--value">
-								<span>2.9 mph</span>
-								<span>0.00 in</span>
-								<span>63%</span>
-								<span>93%</span>
-								<span>30.3 in</span>
+								<span>{current.wind} mph</span>
+								<span>{current.precip} in</span>
+								<span>{current.cloud}%</span>
+								<span>{current.humidity}%</span>
+								<span>{current.pressure} in</span>
 							</div>
 						</div>
 					</div>
