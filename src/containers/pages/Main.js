@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Navbar from '../organisms/Navbar';
 import GlassCard from '../../components/atoms/GlassCard';
 import CurrentWeather from '../organisms/CurrentWeather';
 import TodayPred from '../organisms/TodayPred';
 import TodayGraph from '../organisms/TodayGraph';
 import Forecast from '../organisms/Forecast';
+import Tooltip from '../../components/molecules/Tooltip';
 
 import { connect } from 'react-redux';
 import { getLocation } from '../../config/weatherApi';
 import { getData } from '../../config/redux/actionCreators';
 
-function Main({ isLoading, getData, forecast }) {
+function Main({ isLoading, isError, getData }) {
   const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const autoScanLoc = async () => {
     try {
       const inputLoc = await getLocation();
-      console.log(inputLoc);
+      // console.log(inputLoc);
       await getData(`${inputLoc.latitude},${inputLoc.longitude}`);
-      // get forecast
-
     } catch(err) {
-      console.log(err);
+      console.error(err);
     }
   }
 
@@ -30,41 +30,57 @@ function Main({ isLoading, getData, forecast }) {
   }, [])
 
   useEffect(() => {
-    if(!isLoading) {
-      console.log('loading berhenti', isLoading);
-      console.log('forecast', forecast)
-      setShow(!show);
-    }
-  }, [isLoading])
+    isLoading ? setShow(false) : setShow(true);
+    isError ? setShowError(true) : setShowError(false);
+  }, [isLoading, isError])
 
   return (
     <div className="Main">
+      <Tooltip />
       <Navbar />
-      { 
-        show ?
-          <div className="content container-lg">
-            <GlassCard>
-              <div className="col center">
-                <div className="row center bottom">
-                  <CurrentWeather />
-                  <TodayGraph />
-                </div>
-                <div className="row center">
-                  <TodayPred />
-                </div>
-                <Forecast />
+      <div className="content container-lg">
+        <GlassCard>
+          { 
+            show ?
+              <Fragment>
+                {
+                  showError ?
+                    <div className="error col center">
+                      <span class="material-icons md-48">
+                        error
+                      </span>
+                      <span>Error! , Failed to Get Data<br />Try to Input Another City</span>
+                    </div>
+                    :
+                    <div className="col center">
+                      <div className="row center bottom">
+                        <CurrentWeather />
+                        <TodayGraph />
+                      </div>
+                      <div className="row center">
+                        <TodayPred />
+                      </div>
+                      <Forecast />
+                    </div>
+                }
+              </Fragment>
+              :
+              <div className="loading col center">
+                <span class="material-icons md-48">
+                  hourglass_empty
+                </span>
+                <span>Please Wait , Fetching Data...</span>
               </div>
-            </GlassCard>
-          </div>
-        : null
-      }
+          }
+        </GlassCard>
+      </div>
     </div>
   );
 }
 
 const mapStateToProps = state => ({
   isLoading: state.isLoading,
-  forecast: state.forecast
+  isError: state.isError
 });
 
 const mapDispatchToProps = dispatch => ({

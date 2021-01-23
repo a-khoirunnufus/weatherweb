@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SolidCard from '../../components/atoms/SolidCard';
 import { connect } from 'react-redux';
-import { Line, Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 function TodayGraph({ chartDataset }) {
 	let chartData = {

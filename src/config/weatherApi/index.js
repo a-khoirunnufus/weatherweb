@@ -30,24 +30,9 @@ export function getDataFromAPI(location) {
 				resolve({ location, current, forecast });
 			})
 			.catch(err => {
-				console.log(err);
+				reject(err);
 			})
 	});
-
-	// async await version
-	// const fetchApi = async () => {
-	// 	try {
-	// 		const data = await fetch(`${url}/current.json?key=${apiKey}&q=${location}`);
-	// 		const { location, current } = data;
-	// 		location = mapResToLoc(location);
-	// 		current = mapResToCurrent(current);
-	// 		return { location, current };
-	// 	} catch(err) {
-	// 		console.log(err);
-	// 	}
-	// }
-	// return fetchApi();
-
 };
 
 function mapResToLoc(loc) {
@@ -72,14 +57,14 @@ function mapResToCurrent(current) {
 
 function mapResToForecast(forecast) {
 	let mapped = [];
-	forecast.forecastday.map(item => {
+	forecast.forecastday.forEach(item => {
 		// convert date format
 		let date = item.date;
 		date = ConvertToDate(date);
 
 		let rawHour = item.hour;
 		let hour = [];
-		rawHour.map(item => {
+		rawHour.forEach(item => {
 			let { 
 				time,
 				cloud,

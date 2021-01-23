@@ -10,10 +10,54 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+.loading {
+	margin-top: 4rem;
+	span:first-child {
+		margin-bottom: 1rem;
+	}
+	span:last-child {
+		font-weight: 500;
+	}
+}
+
+.error {
+	margin-top: 4rem;
+	span:first-child {
+		margin-bottom: 1rem;
+	}
+	span:last-child {
+		font-weight: 500;
+	}
+}
+
+.tooltip {
+	position: absolute;
+	top: 100px;
+	right: 50px;
+	z-index: 1;
+	background-color: lightgreen;
+	padding: 1rem;
+	display: inline-block;
+	opacity: .9;
+	box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+	span:first-child {
+		display: block;
+		margin-bottom: .5rem;
+	}
+	&.show {
+		visibility: visible;
+	}
+	&.hide {
+		visibility: hidden;
+	}
+}
+
 .content {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 	& > .glass-card {
+		width: 1200px;
+		min-height: 1171px;
 		padding: 4rem 2rem;
 	}
 }
@@ -60,12 +104,14 @@
 	}
 
 	&--icon {
+		width: 94px;
 		img {
 			width: 90px;
 			height: 90px;			
 		}
 		span {
-			font-weight: 500;
+			font-weight: 400;
+			text-align: center;
 		}
 	}
 
@@ -123,7 +169,7 @@
 			& > .row {
 				overflow: auto;
 				& > .row {
-					border-right: 1px solid $font-dark;
+					border-right: 1px solid rgba(0,0,0,.3);
 					&:last-child {
 						border: none;
 					}
@@ -151,6 +197,7 @@
 		}
 		&-item-condition {
 			width: 100px;
+			height: 102px;
 			& > img {
 				width: 64px;
 				height: 64px;

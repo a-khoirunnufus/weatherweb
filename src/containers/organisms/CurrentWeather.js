@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import StatusIcon from '../../components/atoms/StatusIcon';
 import SolidCard from '../../components/atoms/SolidCard';
 import { connect } from 'react-redux';
 
 function CurrentWeather({ location, current }) {
-	// useEffect(() => {
-	// 	console.log('props pada currentWeather: ',{ location, current });
-	// }, [ location, current]);
 	return (
 		<div className="current-weather">
 			

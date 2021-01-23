@@ -1,8 +1,6 @@
 import React from 'react';
 import SolidCard from '../../components/atoms/SolidCard';
 import DropdownList from './DropdownList';
-import weatherIconUrl from '../../assets/icons/weather/day/sunny.png';
-import { connect } from 'react-redux';
 
 function Forecast() {
 	return (

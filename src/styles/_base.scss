@@ -20,6 +20,19 @@ body {
   background-position: center;
   background-size: cover;
   overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.3); 
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.6); 
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,.8); 
+  }
 }
 
 input {

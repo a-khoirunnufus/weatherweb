@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SolidCard from '../../components/atoms/SolidCard';
 import PredItem from '../../components/atoms/predItem';
 import { connect } from 'react-redux';
 
 function TodayPred({ forecastToday, isLoading }) {
-	useEffect(() => {
-		console.log('jalan',forecastToday);
-	}, [forecastToday, isLoading]);
-
 	return (
 		<div className="today-pred">
 			<div className="today-pred--card">
