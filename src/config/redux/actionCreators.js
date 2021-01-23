@@ -3,9 +3,6 @@ import { getDataFromAPI } from '../weatherApi';
 export const getData = inputLoc => dispatch => {
 	dispatch({ type: 'SET_LOADING', payload: true });
 	getDataFromAPI(inputLoc)
-		.finally(
-			dispatch({ type: 'SET_LOADING', payload: false })
-		)
 		.then(({ location, current, forecast }) => {
 			console.log('hasil api call:',{ location, current, forecast });
 			dispatch({ type: 'SET_LOC', payload: location});
@@ -22,8 +19,10 @@ export const getData = inputLoc => dispatch => {
 				forecast[0].hour[18].temp,
 				forecast[0].hour[21].temp,
 			] });
+			dispatch({ type: 'SET_LOADING', payload: false });
 		})
 		.catch(err => {
 			console.log(err);
+			dispatch({ type: 'SET_LOADING', payload: false });
 		});	
 }

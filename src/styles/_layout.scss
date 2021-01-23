@@ -5,6 +5,12 @@
 	&.center {
 		justify-content: center;
 	}
+	&.bottom {
+		align-items: flex-end;
+	}
+	&.space-between {
+		justify-content: space-between;
+	}
 }
 
 .col {
@@ -16,6 +22,6 @@
 }
 
 .container-lg {
-	width: 992px;
+	width: 1200px;
 	margin: 0 auto;
 }
