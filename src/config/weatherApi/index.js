@@ -2,7 +2,7 @@ import { apiKey } from './apiKey';
 import geolocation from 'geolocation';
 import { ConvertToDate, ConvertToHour } from '../../utils/ConvertDate';
 
-const url = 'http://api.weatherapi.com/v1';
+const url = 'https://api.weatherapi.com/v1';
 
 export const getLocation = () => {
 	return new Promise((resolve, reject) => {
