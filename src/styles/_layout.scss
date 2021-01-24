@@ -2,6 +2,9 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	&.wrap {
+		flex-wrap: wrap;
+	}
 	&.center {
 		justify-content: center;
 	}
@@ -38,5 +41,12 @@
 	margin: 0 auto;
 }
 
+.content-wrapper {
+	display: inline-block;
+	margin: 0 auto;
+}
+
 .p-1 { padding: 1rem }
 .p-2 { padding: 2rem }
+
+.d-flex { display: flex }

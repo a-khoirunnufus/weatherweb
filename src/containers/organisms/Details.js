@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react';
-import SolidCard from '../../components/atoms/SolidCard';
+import React from 'react';
 import { connect } from 'react-redux';
 
 function Details({ current, location }) {
 	return (
-		<div className="current-weather--details solid-card col p-2">
+		<div className="current-weather--details solid-card col p-2 col-6-md col-12-sm">
 			<div className="current-weather--details-wrapper">
 				<span className="current-weather--loc-city">{location.name}</span>
 				<span className="current-weather--loc-region">{location.region}, {location.country}</span>

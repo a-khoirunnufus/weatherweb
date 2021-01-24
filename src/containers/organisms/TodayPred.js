@@ -40,6 +40,7 @@ function TodayPred({ forecastToday }) {
 										/>
 									)
 								}
+								return null
 							})
 						}
 					</div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import Navbar from '../organisms/Navbar';
-import GlassCard from '../../components/atoms/GlassCard';
 import Condition from '../organisms/Condition';
 import Details from '../organisms/Details';
 import Graph from '../organisms/Graph';
@@ -38,84 +37,44 @@ function Main({ isLoading, isError, getData }) {
 
   return (
     <div className="Main">
-      <div className="main-container">
-        <GlassCard>
-          <Tooltip />
-          <Navbar />
-          { 
-            show ?
-              <div className="content">
-                {
-                  showError ?
-                    <div className="error col center">
-                      <span class="material-icons md-48">
-                        error
-                      </span>
-                      <span>Error! , Failed to Get Data<br />Try to Input Another City</span>
-                    </div>
-                    :
-                    <Fragment>
-                      <div className="current-weather col">
-                        <div className="row stretch">
-                          <Condition />
-                          <Details />
-                          <Graph />
-                        </div>
-                        <TodayPred />
+      <div className="main-container glass-card col">
+        <Tooltip />
+        <Navbar />
+        { 
+          show ?
+            <div className="content">
+              {
+                showError ?
+                  <div className="error col center">
+                    <span className="material-icons md-48">
+                      error
+                    </span>
+                    <span>Error! , Failed to Get Data<br />Try to Input Another City</span>
+                  </div>
+                  :
+                  <Fragment>
+                    <div className="current-weather col">
+                      <div className="row wrap stretch">
+                        <Condition />
+                        <Details />
+                        <Graph />
                       </div>
-                      <Forecast />
-                    </Fragment>
-                }
-              </div>
-              :
-              <div className="loading col center">
-                <span class="material-icons md-48">
-                  hourglass_empty
-                </span>
-                <span>Please Wait , Fetching Data...</span>
-              </div>
-          }
-          <Footer />
-        </GlassCard>
+                      <TodayPred />
+                    </div>
+                    <Forecast />
+                  </Fragment>
+              }
+            </div>
+            :
+            <div className="loading col center">
+              <span className="material-icons md-48">
+                hourglass_empty
+              </span>
+              <span>Please Wait , Fetching Data...</span>
+            </div>
+        }
+        <Footer />
       </div>
-      {/*
-      <div className="content container-lg">
-        <GlassCard>
-          { 
-            show ?
-              <Fragment>
-                {
-                  showError ?
-                    <div className="error col center">
-                      <span class="material-icons md-48">
-                        error
-                      </span>
-                      <span>Error! , Failed to Get Data<br />Try to Input Another City</span>
-                    </div>
-                    :
-                    <div className="col center">
-                      <div className="row center bottom">
-                        <CurrentWeather />
-                        <TodayGraph />
-                      </div>
-                      <div className="row center">
-                        <TodayPred />
-                      </div>
-                      <Forecast />
-                    </div>
-                }
-              </Fragment>
-              :
-              <div className="loading col center">
-                <span class="material-icons md-48">
-                  hourglass_empty
-                </span>
-                <span>Please Wait , Fetching Data...</span>
-              </div>
-          }
-        </GlassCard>
-      </div>
-    */}
     </div>
   );
 }

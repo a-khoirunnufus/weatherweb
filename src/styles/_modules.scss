@@ -1,4 +1,5 @@
 .brand {
+	margin-left: 2rem;
 	font-family: 'Roboto Slab', serif;
 	font-size: 20px;
 	font-weight: 500;
@@ -77,16 +78,13 @@
 	background: linear-gradient(152.39deg, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .1) 100%);
 	backdrop-filter: blur(10px);
 	margin: 0 auto;
-	width: 1158.5px;
 }
 
 .main-container {
 	margin: 2rem auto;
-	max-width: 1200px;
-	display: flex;
-	& > .glass-card {
-		padding: 2rem 4rem;
-	}
+	width: 90vw;
+	max-width: 1158.5px;
+	padding: 2rem 4rem;
 }
 
 
@@ -113,7 +111,7 @@
 		color: $font-dark;
 		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 		&-temp {
-			font-size: 64px;
+			font-size: 56px;
 			font-weight: 500;
 			display: block;
 		}
@@ -127,7 +125,7 @@
 		}
 		&-text {
 			font-size: 18px;
-			min-height: 40px;
+			min-height: 60px;
 			font-weight: 500;
 			display: block;
 		}
@@ -222,7 +220,7 @@
 		}
 		&-item-condition {
 			width: 100px;
-			height: 102px;
+			height: 124px;
 			& > img {
 				width: 64px;
 				height: 64px;
@@ -230,7 +228,7 @@
 		}
 		&-item-temp {
 			margin-left: .5rem;
-			font-size: 32px;
+			font-size: 24px;
 			font-weight: 500;
 		}
 	}
@@ -249,8 +247,9 @@
 	margin-top: 2rem;
 	display: flex;
 	&--wrapper {
-		display: inline-block;
-		margin: 0 auto;
+		width: 100%;
+		display: flex;
+		overflow: auto;
 	}
 	&--title {
 		text-transform: uppercase;
@@ -338,5 +337,51 @@
 		text-decoration: none;
 		color: $font-dark;
 		font-weight: 500;
+	}
+}
+
+
+@media (max-width: $breakpoint-tablet) {
+	.col-6-md { width: 50% }
+	.col-12-md { width: 100% }
+
+	.current-weather--condition {
+		flex: none;
+	}
+	.current-weather--details {
+		flex: none;
+		margin-left: 0;
+	}
+	.current-weather--graph {
+		flex: none;
+		margin-left: 0;
+		margin-top: 2rem;
+		height: 287px;
+	}
+
+	.forecast--wrapper {
+	}
+}
+
+@media (max-width: $breakpoint-phone) {
+	.col-12-sm { width: 100% }
+
+	.main-container {
+		padding: 2rem 2rem;
+	}
+
+	.navbar {
+		.solid-card {
+			margin: 0 auto;
+			margin-top: 2rem;
+			width: 100%;
+   		max-width: 300px;
+		}
+	}
+	.brand {
+		margin: 0 auto;
+	}
+	.content {
+		margin-top: 2rem;
 	}
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Tooltip() {
 	const [visible, setVisible] = useState('hide');

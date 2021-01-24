@@ -5,7 +5,7 @@ export const getData = inputLoc => dispatch => {
 	dispatch({ type: 'SET_LOADING', payload: true });
 	getDataFromAPI(inputLoc)
 		.then(({ location, current, forecast }) => {
-			console.log('hasil api call:',{ location, current, forecast });
+			// console.log('hasil api call:',{ location, current, forecast });
 			dispatch({ type: 'SET_LOC', payload: location});
 			dispatch({ type: 'SET_CURRENT', payload: current});
 			dispatch({ type: 'SET_FORECAST', payload: forecast});

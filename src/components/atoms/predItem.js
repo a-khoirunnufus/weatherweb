@@ -10,7 +10,7 @@ export default function predItem({ label, icon, temp, text }) {
 						<img src={icon} alt="weather icon" />
 						<span>{text}</span>
 					</div>
-					<span className="today-pred--card-item-temp">{temp}°</span>
+					<span className="today-pred--card-item-temp">{temp}°C</span>
 				</div>
 			</div>								
 		</div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Brand from '../../components/atoms/Brand';
-import GlassCard from '../../components/atoms/GlassCard';
 import SearchBox from '../../components/molecules/SearchBox';
 import { connect } from 'react-redux';
 import { getData } from '../../config/redux/actionCreators';
@@ -11,9 +10,11 @@ function Navbar({ search }) {
 	}
 
 	return (
-		<div className="navbar row space-between">
+		<div className="navbar row space-between wrap">
 			<Brand />
-			<SearchBox handleSearch={handleSearch} />
+			<div className="col-12-sm d-flex">
+				<SearchBox handleSearch={handleSearch} />
+			</div>
 		</div>
 	);
 }

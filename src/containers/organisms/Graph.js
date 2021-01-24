@@ -1,5 +1,4 @@
 import React from 'react';
-import SolidCard from '../../components/atoms/SolidCard';
 import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 
@@ -16,7 +15,7 @@ function Graph({ chartDataset }) {
   };
 
   return (
-  	<div className="current-weather--graph solid-card p-1">
+  	<div className="current-weather--graph solid-card p-1 col-12-md">
 	  	<Line
 				data={chartData}
 				options={{

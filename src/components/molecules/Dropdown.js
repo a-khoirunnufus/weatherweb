@@ -21,7 +21,7 @@ export default function Dropdown({ listItem }) {
 									return (
 										<li key={key} className="dropdown--list--item-wrapper row">
 											<span className="dropdown--list--item-time">{item.time}</span>
-											<span className="dropdown--list--item-temp">{item.temp}°</span>
+											<span className="dropdown--list--item-temp">{item.temp}°C</span>
 											<div className="dropdown--list--item-status row">
 												<img src={item.condition.icon} alt="weather icon"/>
 												<span>{item.condition.text}</span>
@@ -49,6 +49,7 @@ export default function Dropdown({ listItem }) {
 										</li>
 									)
 								}
+								return null;
 							})
 						}
 					</ul>
