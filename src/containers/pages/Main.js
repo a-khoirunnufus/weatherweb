@@ -1,10 +1,12 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import Navbar from '../organisms/Navbar';
 import GlassCard from '../../components/atoms/GlassCard';
-import CurrentWeather from '../organisms/CurrentWeather';
+import Condition from '../organisms/Condition';
+import Details from '../organisms/Details';
+import Graph from '../organisms/Graph';
 import TodayPred from '../organisms/TodayPred';
-import TodayGraph from '../organisms/TodayGraph';
 import Forecast from '../organisms/Forecast';
+import Footer from '../../components/molecules/Footer';
 import Tooltip from '../../components/molecules/Tooltip';
 
 import { connect } from 'react-redux';
@@ -36,8 +38,47 @@ function Main({ isLoading, isError, getData }) {
 
   return (
     <div className="Main">
-      <Tooltip />
-      <Navbar />
+      <div className="main-container">
+        <GlassCard>
+          <Tooltip />
+          <Navbar />
+          { 
+            show ?
+              <div className="content">
+                {
+                  showError ?
+                    <div className="error col center">
+                      <span class="material-icons md-48">
+                        error
+                      </span>
+                      <span>Error! , Failed to Get Data<br />Try to Input Another City</span>
+                    </div>
+                    :
+                    <Fragment>
+                      <div className="current-weather col">
+                        <div className="row stretch">
+                          <Condition />
+                          <Details />
+                          <Graph />
+                        </div>
+                        <TodayPred />
+                      </div>
+                      <Forecast />
+                    </Fragment>
+                }
+              </div>
+              :
+              <div className="loading col center">
+                <span class="material-icons md-48">
+                  hourglass_empty
+                </span>
+                <span>Please Wait , Fetching Data...</span>
+              </div>
+          }
+          <Footer />
+        </GlassCard>
+      </div>
+      {/*
       <div className="content container-lg">
         <GlassCard>
           { 
@@ -74,6 +115,7 @@ function Main({ isLoading, isError, getData }) {
           }
         </GlassCard>
       </div>
+    */}
     </div>
   );
 }

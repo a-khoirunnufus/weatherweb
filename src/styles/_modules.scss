@@ -2,16 +2,24 @@
 	font-family: 'Roboto Slab', serif;
 	font-size: 20px;
 	font-weight: 500;
+	color: $font-dark;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 // material icons
+.material-icons {
+	filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2))
+}
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+.material-icons.md-64 { font-size: 64px; }
 
 .loading {
 	margin-top: 4rem;
+	color: $font-dark;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 	span:first-child {
 		margin-bottom: 1rem;
 	}
@@ -22,6 +30,8 @@
 
 .error {
 	margin-top: 4rem;
+	color: $font-dark;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 	span:first-child {
 		margin-bottom: 1rem;
 	}
@@ -53,27 +63,32 @@
 }
 
 .content {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	& > .glass-card {
-		width: 1200px;
-		min-height: 1171px;
-		padding: 4rem 2rem;
-	}
+	margin-top: 3rem;
 }
 
 // card
 .solid-card {
 	background: linear-gradient(271.59deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 100%);
 	box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
-	display: inline-block;
 }
 
 .glass-card {
 	box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
 	background: linear-gradient(152.39deg, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .1) 100%);
 	backdrop-filter: blur(10px);
+	margin: 0 auto;
+	width: 1158.5px;
 }
+
+.main-container {
+	margin: 2rem auto;
+	max-width: 1200px;
+	display: flex;
+	& > .glass-card {
+		padding: 2rem 4rem;
+	}
+}
+
 
 // search-box
 .search-box {
@@ -87,39 +102,49 @@
 
 // navbar
 .navbar {
-	& > .row {
-		justify-content: space-between;
-		padding: 1rem 2rem;
-	}
 }
-
 
 // current weather
 .current-weather {
-	display: inline-block;
 
-	&--temp {
-		font-size: 64px;
-		margin-right: 1rem;
+	&--condition {
+		flex: 1;
+		text-align: center;
+		color: $font-dark;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+		&-temp {
+			font-size: 64px;
+			font-weight: 500;
+			display: block;
+		}
+		&-icon-wrapper {
+			margin-top: 1rem;
+		}
+		&-icon {
+			margin: 0 auto;
+			display: block;
+			filter: drop-shadow(2px 2px 4px rgba(0,0,0,.2))
+		}
+		&-text {
+			font-size: 18px;
+			min-height: 40px;
+			font-weight: 500;
+			display: block;
+		}
 	}
 
-	&--icon {
-		width: 94px;
-		img {
-			width: 90px;
-			height: 90px;			
-		}
-		span {
-			font-weight: 400;
-			text-align: center;
+	&--details {
+		flex: 2;
+		margin-left: 2rem;
+		display: flex;
+		&-wrapper {
+			display: inline-block;
+			margin: 0 auto;
 		}
 	}
-
-	&--card {
-		margin-top: 2rem;
-		.solid-card {
-			padding: 2rem 3rem;
-		}
+	&--graph {
+		flex: 3;
+		margin-left: 2rem;
 	}
 
 	&--loc-city {
@@ -222,8 +247,10 @@
 // forecast
 .forecast {
 	margin-top: 2rem;
-	& > .solid-card {
-		padding: 2rem 3rem;
+	display: flex;
+	&--wrapper {
+		display: inline-block;
+		margin: 0 auto;
 	}
 	&--title {
 		text-transform: uppercase;
@@ -292,5 +319,24 @@
 				width: 49px;
 			}
 		}
+	}
+}
+
+.footer {
+	margin-top: 3rem;
+	font-weight: 400;
+	display: flex;
+	span {
+		color: $font-dark;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	&--wrapper {
+		display: inline-block;
+		margin: 0 auto;
+	}
+	a {
+		text-decoration: none;
+		color: $font-dark;
+		font-weight: 500;
 	}
 }

@@ -11,14 +11,10 @@ function Navbar({ search }) {
 	}
 
 	return (
-		<GlassCard>
-			<div className="navbar">
-				<div className="container-lg row">
-					<Brand />
-					<SearchBox handleSearch={handleSearch} />
-				</div>
-			</div>
-		</GlassCard>
+		<div className="navbar row space-between">
+			<Brand />
+			<SearchBox handleSearch={handleSearch} />
+		</div>
 	);
 }
 

@@ -11,6 +11,9 @@
 	&.space-between {
 		justify-content: space-between;
 	}
+	&.stretch {
+		align-items: stretch;
+	}
 }
 
 .col {
@@ -19,9 +22,21 @@
 	&.center {
 		align-items: center;
 	}
+	&.al-center {
+		align-items: center;
+	}
+	&.js-center {
+		justify-content: center;
+	}
+	&.js-space {
+		justify-content: space-between;
+	}
 }
 
 .container-lg {
 	width: 1200px;
 	margin: 0 auto;
 }
+
+.p-1 { padding: 1rem }
+.p-2 { padding: 2rem }

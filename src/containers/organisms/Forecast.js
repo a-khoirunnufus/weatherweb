@@ -4,11 +4,11 @@ import DropdownList from './DropdownList';
 
 function Forecast() {
 	return (
-		<div className="forecast">
-			<SolidCard>
+		<div className="forecast solid-card p-2">
+			<div className="forecast--wrapper">
 				<span className="forecast--title">3 Day Weather Forecast</span>
 				<DropdownList />	
-			</SolidCard>
+			</div>
 		</div>
 	);
 }
