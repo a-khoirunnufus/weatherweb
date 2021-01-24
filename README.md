@@ -1,7 +1,6 @@
 # Project Description
 
-This is Weather website project powered by [WeatherAPI](https://www.weatherapi.com/) and made with React. website displays current weather condition and 3 day weather forecast.\
-Open demo [WeatherWeb](https://weatherweb33.netlify.app/).\
+This is Weather website project powered by [WeatherAPI](https://www.weatherapi.com/) and made with React. website displays current weather condition and 3 day weather forecast. Open demo [WeatherWeb](https://weatherweb33.netlify.app/).\
 to run this project create file that store api key from [WeatherAPI](https://www.weatherapi.com/), then put api key in path: src/config/weatherApi/apiKey.js.
 
 # Getting Started with Create React App
